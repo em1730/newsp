@@ -86,8 +86,8 @@ $sb_my_profile = "";
                 <table id="maintable" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      <th>Date Received</th>
                       <th>Referral No.</th>
+                      <th>Date Received</th>
                       <th>Requesting Office</th>
                       <th>Description</th>
                       <th>Schedule of Agenda</th>

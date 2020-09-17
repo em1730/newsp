@@ -16,6 +16,7 @@ $btnEdit = "";
 $update_committeeno = $get_committee = $get_status = $subcommittee = '';
 
 //REFERRAL
+$refno = $date_received = $description = $office = $review = $referral = $urgent =  $remarks =  '';
 
 
 $btnNew = 'disabled';
@@ -280,5 +281,11 @@ $get_committee_data4->execute();
 $get_committee1_sql = "SELECT * FROM committee where objid = :comid";
 $get_committee1_data = $con->prepare($get_committee1_sql);
 $get_committee1_data->execute([':comid' => $comID]);
+
+//get all department
+//select all departments
+$get_departments_sql = "SELECT * FROM tbl_department";
+$get_departments_data = $con->prepare($get_departments_sql);
+$get_departments_data->execute();  
 
 ?>
