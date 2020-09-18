@@ -1,13 +1,13 @@
 <?php
 
 session_start();
-include ('../config/db_config.php');
+include('../config/db_config.php');
 // ORDINANCE
 $ordinance = $title = $public_hearing = $date_enacted = $date_lce = $date_province = $dateadded = $author = $coauthors = $category = $fileName = $new_coauthors = '';
 //RESOLUTION
-$resolution = $reTitle =$dateadopted = $dateapprovelce = '';
+$resolution = $reTitle = $dateadopted = $dateapprovelce = '';
 // SP MEMBER
-$empID = $fullName = $contact_number = $committee = $email = $location ='';
+$empID = $fullName = $contact_number = $committee = $email = $location = '';
 // COMMITTEE
 $comID =  $committee = $status =  '';
 // SP PROFILE
@@ -21,7 +21,7 @@ $refno = $date_received = $description = $office = $review = $referral = $urgent
 
 $btnNew = 'disabled';
 $btnStatus = "";
-$disablebutton ="";
+$disablebutton = "";
 $btnhidden = "";
 $btnhidden2 = "";
 
@@ -30,7 +30,6 @@ $user_id = $_SESSION['id'];
 if (!isset($_SESSION['id'])) {
     header('location:../index.php');
 } else {
-
 }
 
 
@@ -53,26 +52,25 @@ while ($result = $user_data->fetch(PDO::FETCH_ASSOC)) {
     $db_department = $result['department'];
     $db_location = $result['location'];
     $db_accounttype = $result['account_type'];
-
 }
 
-// if not SP will be kick to log-in
-if ($db_accounttype != '2') {
+// if not admin will be kick to log-in
+if ($db_accounttype != '0') {
     header('location:../index.php');
 } else {
-
 }
 
+// 
 
 // Enable delete button for authorized position
 if ($db_position == "RMO III") {
-     $disablebutton = '';
-     $readonly = '';
- }else{
+    $disablebutton = '';
+    $readonly = '';
+} else {
     $disablebutton = 'disabled';
     $readonly = 'readonly';
- }
-    
+}
+
 
 
 if (isset($_GET['orno'])) {
@@ -95,15 +93,15 @@ if (isset($_GET['orno'])) {
         $category = $result['Category'];
         $fileName = $result['Filenames'];
 
-    // separate co-authors by comma
-    // result is array variable
+        // separate co-authors by comma
+        // result is array variable
 
-    // when inserting new record, use implode function
-    // when retrieving imploded data to array, use explode function
+        // when inserting new record, use implode function
+        // when retrieving imploded data to array, use explode function
 
-    // explode('since sa pag insert nag gamit kag comma, so comma pod diri', 'mao ni ang imploded data')
-    // $new_coauthors is now a valid array
-    $new_coauthors = explode(',', $coauthors);
+        // explode('since sa pag insert nag gamit kag comma, so comma pod diri', 'mao ni ang imploded data')
+        // $new_coauthors is now a valid array
+        $new_coauthors = explode(',', $coauthors);
     }
 }
 
@@ -118,9 +116,6 @@ if (isset($_GET['comno'])) {
         $update_committeeno = $result['objid'];
         $get_committee = $result['committee'];
         $get_status = $result['status'];
-
-        
-  
     }
 }
 
@@ -142,39 +137,39 @@ if (isset($_GET['resno'])) {
         $category = $result['Category'];
         $fileName = $result['Filenames'];
 
-    // separate co-authors by comma
-    // result is array variable
+        // separate co-authors by comma
+        // result is array variable
 
-    // when inserting new record, use implode function
-    // when retrieving imploded data to array, use explode function
+        // when inserting new record, use implode function
+        // when retrieving imploded data to array, use explode function
 
-    // explode('since sa pag insert nag gamit kag comma, so comma pod diri', 'mao ni ang imploded data')
-    // $new_coauthors is now a valid array
+        // explode('since sa pag insert nag gamit kag comma, so comma pod diri', 'mao ni ang imploded data')
+        // $new_coauthors is now a valid array
         $new_coauthors2 = explode(',', $coauthors);
-    }  
+    }
 }
 
 
 if (isset($_GET['objid'])) {
     $user_id = $_GET['objid'];
 
-//fetch sp_member from database
-$get_spmember_sql = "SELECT * FROM sp_members where objid = :id";
-$get_spmember_data = $con->prepare($get_spmember_sql);
-$get_spmember_data->execute([':id' => $user_id]);
-while ($result = $get_spmember_data->fetch(PDO::FETCH_ASSOC)) {
+    //fetch sp_member from database
+    $get_spmember_sql = "SELECT * FROM sp_members where objid = :id";
+    $get_spmember_data = $con->prepare($get_spmember_sql);
+    $get_spmember_data->execute([':id' => $user_id]);
+    while ($result = $get_spmember_data->fetch(PDO::FETCH_ASSOC)) {
 
 
-    $empID= $result['objid'];
-    $fullName = $result['fullname'];
-    $email = $result['email'];
-    $contact_number = $result['contactno'];
-    $committee = $result['committee'];
-    $subcommittee = $result['subcommittee'];
-    $location =$result['location'];
+        $empID = $result['objid'];
+        $fullName = $result['fullname'];
+        $email = $result['email'];
+        $contact_number = $result['contactno'];
+        $committee = $result['committee'];
+        $subcommittee = $result['subcommittee'];
+        $location = $result['location'];
 
-    $new_committees = explode(' , ', $committee);
-    $new_subcommittees = explode(' , ', $subcommittee);
+        $new_committees = explode(' , ', $committee);
+        $new_subcommittees = explode(' , ', $subcommittee);
     }
 }
 
@@ -286,6 +281,4 @@ $get_committee1_data->execute([':comid' => $comID]);
 //select all departments
 $get_departments_sql = "SELECT * FROM tbl_department";
 $get_departments_data = $con->prepare($get_departments_sql);
-$get_departments_data->execute();  
-
-?>
+$get_departments_data->execute();

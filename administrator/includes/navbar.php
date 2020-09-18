@@ -7,14 +7,14 @@
          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
        </li>
 
-       <li class="nav-item d-none d-sm-inline-block">
+       <!-- <li class="nav-item d-none d-sm-inline-block">
          <a href="index.php" class="nav-link"><i class="nav-icon fa fa-home"></i></a>
-       </li>
+       </li> -->
 
        <!-- <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link"><i class="nav-icon fa fa-envelope"></i></a>
        </li> -->
-       
+
      </ul>
 
      <!-- Right navbar links -->
@@ -24,25 +24,25 @@
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="fa fa-comments-o"></i>
           <span class="badge badge-danger navbar-badge">
-             <?php echo $get_commiteeno_data->rowCount()?>
+             <?php echo $get_commiteeno_data->rowCount() ?>
           </span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
         <?php
-     $spmember = $con->query("SELECT * FROM sp_members WHERE committee ='Police Matters, Fire & Penology'")->fetchall(PDO::FETCH_ASSOC);
-     foreach($spmember as $row):?>
+        $spmember = $con->query("SELECT * FROM sp_members WHERE committee ='Police Matters, Fire & Penology'")->fetchall(PDO::FETCH_ASSOC);
+        foreach ($spmember as $row) : ?>
 
           <a href="update_sp_member.php?objid=<?php echo $row['objid']; ?>" class="dropdown-item">
 
             <div class="media">
-              <img src="<?php echo (empty($row['location'])) ? '../dist/pic/nophoto.png' : '../dist/pic/'.$row['location'] ; ?>" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="<?php echo (empty($row['location'])) ? '../dist/pic/nophoto.png' : '../dist/pic/' . $row['location']; ?>" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                   <?php echo $row['fullname'];?>
+                   <?php echo $row['fullname']; ?>
                    <span class="float-right text-sm text-danger"><i class="fa fa-star"></i></span>
                 </h3>
-                <p class="text-sm"><?php echo $row['email'];?></p>
+                <p class="text-sm"><?php echo $row['email']; ?></p>
                 <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
@@ -87,6 +87,6 @@
             class="fa fa-th-large"></i></a>
       </li>
      </ul> -->
-     
-  </nav>
-  <!-- Navbar End -->
+
+   </nav>
+   <!-- Navbar End -->

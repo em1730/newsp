@@ -3,9 +3,9 @@
 include('../config/db_config.php');
 //include('import_pdf.php');
 
-//  echo "<pre>";
-//     print_r($_POST);
-//  echo "</pre>";
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
 
 $alert_msg = '';
 $alert_msg1 = '';
