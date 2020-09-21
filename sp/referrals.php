@@ -53,7 +53,7 @@
             <button type="button" class="btn btn-default" href="../bower_components/PHPExcel/Examples/blank"><i class="fa fa-envelope-o"></i> Export Data</button>
             <button type="button" class="btn btn-default" href="import_data"><i class="fa fa-file-text-o"></i> Import Data</button>
          </div>
-       </div> -->
+        </div> -->
 
         <div class="row animationOUT">
           <div class="col-md-2">

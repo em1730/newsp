@@ -21,7 +21,7 @@ if (isset($_POST['signin'])) {
   if ($username_data->rowCount() > 0) {
     while ($result = $username_data->fetch(PDO::FETCH_ASSOC)) {
 
-      //from database already hash
+      //from database already hash  
       $hash_password = $result['userpass'];
 
       //hash the $u_pass and compared to $hashed_password

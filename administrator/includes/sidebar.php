@@ -45,7 +45,7 @@
 
 
              <a href="#" class="nav-link">
-               <i class="fa fa-long-arrow-up"></i>
+               <i class="fa fa-minus"></i>
                <p> &nbsp; End Users </p>
              </a>
 
@@ -53,14 +53,14 @@
 
                <li class="nav-item">
                  <a href="add_user" class="nav-link <?php echo $admin_add_user ?>">
-                   &nbsp; &nbsp; <i class="fa fa-long-arrow-right"></i>
+                   &nbsp; &nbsp; <i class="fa fa-share fa-flip-vertical "></i>
                    <p> New Record</p>
                  </a>
                </li>
 
                <li class="nav-item">
                  <a href="list_user" class="nav-link <?php echo $admin_list_user ?>">
-                   &nbsp; &nbsp; <i class="fa fa-long-arrow-right"></i>
+                   &nbsp; &nbsp; <i class="fa fa-share fa-flip-vertical  "></i>
                    <p> Users</p>
                  </a>
                </li>
